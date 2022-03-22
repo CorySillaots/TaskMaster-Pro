@@ -44,6 +44,11 @@ var loadTasks = function() {
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
+$(".list-group").on("click", "p", function() {
+  var text = $(this)
+    .text()
+    .trim();
+});
 
 
 
@@ -81,6 +86,11 @@ $("#task-form-modal .btn-primary").click(function() {
     saveTasks();
   }
 });
+// replace p element with new text area
+  var textInput = $("<textarea>")
+  .addClass("form-control")
+  .val(text);
+  $(this).replaceWith(textInput);
 
 // remove all tasks
 $("#remove-tasks").on("click", function() {
