@@ -48,9 +48,14 @@ $(".list-group").on("click", "p", function() {
   var text = $(this)
     .text()
     .trim();
+
+  // replace p element with new text area
+  var textInput = $("<textarea>")
+    .addClass("form-control")
+    .val(text);
+  // replace
+  $(this).replaceWith(textInput);
 });
-
-
 
 
 // modal was triggered
@@ -86,11 +91,7 @@ $("#task-form-modal .btn-primary").click(function() {
     saveTasks();
   }
 });
-// replace p element with new text area
-  var textInput = $("<textarea>")
-  .addClass("form-control")
-  .val(text);
-  $(this).replaceWith(textInput);
+
 
 // remove all tasks
 $("#remove-tasks").on("click", function() {
